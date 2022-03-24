@@ -1,0 +1,19 @@
+name: "action-find-repos"
+description: "Action to find org repos that match a RegEx pattern."
+author: "Purdue ECE"
+inputs:
+  org:
+    description: "organization to search in"
+    required: true
+  pat:
+    description: "Personal access token."
+    required: true
+  pattern:
+    description: "naming pattern to match"
+    default: "*"
+outputs:
+  repos:
+    description: comma-separated list of matching repos
+runs:
+  using: "docker"
+  image: "Dockerfile"
