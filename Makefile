@@ -1,4 +1,7 @@
-test_default:
-	act -W test/test_default.yml
+FLAGS = -r --secret-file .env
+ACT = act $(FLAGS)
 
-test: test_default
+test_ece364prelabs:
+	$(ACT) -W test_integration/test_ece364prelabs.yml
+
+test: test_ece364prelabs

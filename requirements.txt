@@ -1,2 +1,4 @@
 pylint == 2.12.2
 PyGithub == 1.55
+pytest == 7.0.1
+pytest-dotenv == 0.5.2

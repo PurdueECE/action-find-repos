@@ -1,0 +1,15 @@
+name: Default Test
+on: push
+
+jobs:
+  gather-repos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - uses: ./
+        id: get_repos
+        with:
+          org: PurdueECE364
+          pat: ${{ secrets.GITHUB_TOKEN }}
+          pattern: ^prelabs-.*$
+      - run: "echo results: ${{ steps.get_repos.outputs.repos }}"

@@ -1,17 +1,26 @@
 # pylint Action
 
-This action will run pylint in the specified directory.
+This action will search an organization for repos that match a provided RegEx pattern.
 
 # Usage
 ```yaml
-- uses: PurdueECE/action-pylint@v1.2
+- uses: PurdueECE/action-find-repos@v1.0
+  id: get_repos
   with:
-    # Path to be linted
-    # Default: .
-    path: ''
+    # Org to search in
+    org: PurdueECE364
+    # Personal access token
+    pat: ${{ secrets.GITHUB_TOKEN }}
+    # Pattern to match against
+    pattern: ^prelabs-.*$
+# Prints results - output parameters is 'repos'
+- run: "echo results: ${{ steps.get_repos.outputs.repos }}"
 ```
 
 # Testing
-Test cases are contained in the `test/` directory.
+## Unit
+Unit tests are in the `test-unit/` directory. They can be run with `pytest`.
+## Integration
+Integration test cases are in the `test-integration/` directory.
 To test, you must install the [`act`](https://github.com/nektos/act) command line tool.
 After install, run `make test`.
