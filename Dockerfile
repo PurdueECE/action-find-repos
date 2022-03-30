@@ -7,4 +7,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD [ "python", "./src/main.py" ]
+CMD [ "python", "./main.py", "$ORG", "--name_filter", "$PATTERN", \
+    "--pat", "$GITHUB_TOKEN", "--created_before", \
+    "$CREATED_BEFORE", "--created_after", "$CREATED_AFTER" \
+    ]
