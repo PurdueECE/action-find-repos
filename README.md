@@ -1,4 +1,4 @@
-# pylint Action
+# Find Repos Action
 
 This action will search an organization for repos that match a provided RegEx pattern.
 
