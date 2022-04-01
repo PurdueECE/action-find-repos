@@ -1,15 +1,17 @@
 name: Default Test
-on: push
+on: [push]
 
 jobs:
-  gather-repos:
+  test_ece364prelabs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@main
-      - uses: ./
-        id: get_repos
+      - uses: actions/checkout@v3
+      - id: get_repos
+        uses: ./
         with:
           org: PurdueECE364
-          pat: ${{ secrets.GITHUB_TOKEN }}
           pattern: ^prelabs-.*$
-      - run: "echo results: ${{ steps.get_repos.outputs.repos }}"
+          created_after: '2022-01-01T00:00:00'
+          created_before: '2022-06-01T00:00:00'
+      - name: print results
+        run: "echo results: ${{ steps.get_repos.inputs.org }}"

@@ -1,2 +1,2 @@
 PyGithub == 1.55
-argparse == 1.4.0
+actions-toolkit == 0.1.13

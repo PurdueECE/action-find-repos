@@ -5,9 +5,9 @@ inputs:
   org:
     description: "organization to search in"
     required: true
-  pat:
+  token:
     description: "Personal access token."
-    required: true
+    default: ${{ github.token }}
   pattern:
     description: "filter for repos matching a name"
     default: ".*"

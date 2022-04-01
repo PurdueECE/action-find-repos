@@ -1,7 +1,10 @@
-FLAGS = -r --secret-file .env
+FLAGS = --verbose
 ACT = act $(FLAGS)
 
 test_ece364prelabs:
 	$(ACT) -W test_integration/test_ece364prelabs.yml
 
-test: test_ece364prelabs
+test_firebase:
+	$(ACT) -W test_integration/test_firebase.yml
+
+test: test_ece364prelabs test_firebase
