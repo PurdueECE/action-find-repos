@@ -1,4 +1,4 @@
-FLAGS = --verbose
+FLAGS = --secret-file .env
 ACT = act $(FLAGS)
 
 test_ece364prelabs:
