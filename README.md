@@ -13,10 +13,10 @@ This action will search an organization for repos that match a provided RegEx pa
     token: ${{ github.token }}
     # Pattern to match against
     pattern: ^prelabs-.*$
-    # Earliest creation date
-    created_after: '2022-01-01T00:00:00'
-    # Latest creation date
-    created_before: '2022-06-01T00:00:00'
+    # Earliest creation date (DD/MM/YY HH:MM:SS)
+    created_after: '01/01/2022 00:00:00'
+    # Latest creation date (DD/MM/YY HH:MM:SS)
+    created_before: '01/06/2022 00:00:00'
 # Prints results - output parameters is 'repos'
 - run: "echo results: ${{ steps.get_repos.outputs.repos }}"
 ```

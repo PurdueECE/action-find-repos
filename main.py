@@ -28,14 +28,14 @@ def parse_env():
     args = {}
     for input in inputs:
         args[input] = core.get_input(input, trim_whitespace = False)
-    args['created_after'] = datetime.strptime(args['created_after'], '%Y-%m-%dT%H:%M:%S')
-    args['created_before'] = datetime.strptime(args['created_before'], '%Y-%m-%dT%H:%M:%S')
+    args['created_after'] = datetime.strptime(args['created_after'], '%d/%m/%Y %H:%M:%S')
+    args['created_before'] = datetime.strptime(args['created_before'], '%d/%m/%Y %H:%M:%S')
     if args['created_after'] >= args['created_before']: raise Exception('created_after must come before created_before.')
     return args
 
 def set_default_env():
-    os.environ.setdefault('INPUT_CREATED_AFTER', '1970-01-01T00:00:00')
-    os.environ.setdefault('INPUT_CREATED_BEFORE', datetime.now().strftime('%Y-%m-%dT%H:%M:%S'))
+    os.environ.setdefault('INPUT_CREATED_AFTER', '01/01/1970 00:00:00')
+    os.environ.setdefault('INPUT_CREATED_BEFORE', datetime.now().strftime('%d/%m/%Y %H:%M:%S'))
     os.environ.setdefault('INPUT_TOKEN', os.environ.get('GITHUB_TOKEN', ''))
 
 def main():
