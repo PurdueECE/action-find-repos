@@ -16,7 +16,7 @@ inputs:
     default: "current_time"
   created_after:
     description: "filter for repos created after a timestamp"
-    default: "1970-01-01T00:00:0Z"
+    default: "01/01/1970 00:00:0"
 outputs:
   repos:
     description: comma-separated list of repos that satisfy all filters
