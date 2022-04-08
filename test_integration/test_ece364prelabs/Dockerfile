@@ -9,8 +9,8 @@ ENV PYTHONUNBUFFERED=1
 
 ENV INPUT_ORG=PurdueECE364
 ENV INPUT_PATTERN=^prelabs-.*$
-ENV INPUT_CREATED_AFTER=2022-01-01T00:00:00
-ENV INPUT_CREATED_BEFORE=2022-06-01T00:00:00
+ENV INPUT_CREATED_AFTER='01/01/2022 00:00:00'
+ENV INPUT_CREATED_BEFORE='01/06/2022 00:00:00'
 
 # Install pip requirements
 COPY requirements.txt /
@@ -18,10 +18,6 @@ RUN python -m pip install -r /requirements.txt
 
 COPY . /
 
-# Creates a non-root user with an explicit UID and adds permission to access the /app folder
-# For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers
-RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
-USER appuser
 
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
 CMD ["python", "/main.py"]
