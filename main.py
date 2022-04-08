@@ -17,7 +17,7 @@ def search_repos(args):
             if re.match(args['pattern'], repo.name) != None:
                 if repo.created_at >= args['created_after'] and \
                 repo.created_at <= args['created_before']:
-                    matched.append(repo.name)
+                    matched.append(repo.full_name)
         # update indeces
         remaining -= len(page_results)
         page_num += 1
