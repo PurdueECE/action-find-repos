@@ -13,7 +13,6 @@ inputs:
     default: ".*"
   created_before:
     description: "filter for repos created before a timestamp."
-    default: "current_time"
   created_after:
     description: "filter for repos created after a timestamp"
     default: "01/01/1970 00:00:0"
