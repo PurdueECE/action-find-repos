@@ -37,7 +37,8 @@ def parse_env():
 
 def set_default_env():
     os.environ.setdefault('INPUT_CREATED_AFTER', '01/01/1970 00:00:00')
-    os.environ.setdefault('INPUT_CREATED_BEFORE', datetime.now().strftime('%d/%m/%Y %H:%M:%S'))
+    if os.environ.get('INPUT_CREATED_BEFORE', '') == '':
+        os.environ['INPUT_CREATED_BEFORE'] = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
     os.environ.setdefault('INPUT_TOKEN', os.environ.get('GITHUB_TOKEN', ''))
 
 def main():
