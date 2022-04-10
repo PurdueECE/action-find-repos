@@ -21,6 +21,8 @@ def search_repos(args):
         # update indeces
         remaining -= len(page_results)
         page_num += 1
+    if len(matched) < 1:
+        raise Exception(f'No repositories found.\nargs = {args}')
     return matched
 
 def parse_env():
