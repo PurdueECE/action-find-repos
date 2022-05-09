@@ -47,7 +47,7 @@ def main():
         set_default_env()
         args = parse_env()
         matched = search_repos(args)
-        core.set_output('repos', json.dumps({ 'repos': matched }))
+        core.set_output('repos', json.dumps(matched))
     except Exception as e:
         core.set_failed(str(e))
         
