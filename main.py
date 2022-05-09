@@ -1,3 +1,4 @@
+import json
 import os
 import re
 from datetime import datetime
@@ -46,7 +47,7 @@ def main():
         set_default_env()
         args = parse_env()
         matched = search_repos(args)
-        core.set_output('repos', f"[{','.join(matched)}]")
+        core.set_output('repos', json.dumps({ 'repos': matched }))
     except Exception as e:
         core.set_failed(str(e))
         
