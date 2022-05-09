@@ -13,6 +13,6 @@ jobs:
           pattern: ^prelabs-.*$
           created_after: '01/01/2022 00:00:00'
           created_before: '01/06/2022 00:00:00'
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.GEOFF_PAT }}
       - name: Print repos
         run: echo ${{ steps.get_repos.outputs.repos }}
