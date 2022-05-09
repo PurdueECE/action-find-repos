@@ -11,5 +11,4 @@ jobs:
         with:
           org: firebase
           pattern: ^quickstart.*$
-      - name: print results
-        run: "echo results: ${{ steps.get_repos.outputs.repos }}"
+      - run: echo ${{ steps.get_repos.outputs.repos }}

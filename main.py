@@ -46,7 +46,7 @@ def main():
         set_default_env()
         args = parse_env()
         matched = search_repos(args)
-        core.set_output('repos', ','.join(matched))
+        core.set_output('repos', f"[{','.join(matched)}]")
     except Exception as e:
         core.set_failed(str(e))
         
