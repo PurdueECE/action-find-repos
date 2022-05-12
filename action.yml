@@ -4,7 +4,7 @@ author: "Purdue ECE"
 inputs:
   org:
     description: "organization to search in"
-    required: true
+    default: ${{ github.repository_owner }}
   token:
     description: "Personal access token."
     default: ${{ github.token }}
